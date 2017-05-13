@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void onClickLearn(View view) {
         Intent intent = new Intent(this, LearnActivity.class);
+        intent.putExtra("word_id", 2);
         startActivity(intent);
     }
 }

@@ -1,24 +1,29 @@
 package com.colorhills.all;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class LearnActivity extends AppCompatActivity {
+    int wordNum;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_learn);
 
-//        int wordNum = (Integer) getIntent().getExtras().get(EXTRA_WORD_NUM);//TODO save word num witch was last
-        int wordNum = 3;
+        wordNum = getIntent().getIntExtra("word_id", 1);//TODO save word num witch was last
+        showWord();
+    }
 
+    private void showWord(){
         try {
             SQLiteOpenHelper wordDatabaseHelper = new WordDatabaseHelper(this);
             SQLiteDatabase db = wordDatabaseHelper.getReadableDatabase();
@@ -43,5 +48,15 @@ public class LearnActivity extends AppCompatActivity {
             Toast toast = Toast.makeText(this, "Database unvisible", Toast.LENGTH_SHORT);
             toast.show();
         }
+    }
+
+    public void getPrev(View view) {
+       wordNum = wordNum - 1;
+        showWord();
+    }
+
+    public void getNext(View view) {
+        wordNum = wordNum + 1;
+        showWord();
     }
 }
