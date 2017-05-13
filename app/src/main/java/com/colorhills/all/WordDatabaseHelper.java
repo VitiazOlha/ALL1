@@ -143,7 +143,7 @@ String words = "abolish-отменять\n" +
         "withdraw-извлекать";
 
 
-        db.execSQL("CREATE TABLE WORDS (_id INTEGER PRIMARY KEY AUTOINCREMENT, NAME TEXT, TRANSLATE TEXT);");
+        db.execSQL("CREATE TABLE WORDS (_id INTEGER PRIMARY KEY AUTOINCREMENT, NAME TEXT, TRANSLATE TEXT, PIC_ID);");
         String[] strs = words.split("\n");
         for (int i = 0; i < strs.length; i++) {
             String[] arr = strs[i].split("-");
