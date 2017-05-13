@@ -17,15 +17,21 @@ class WordDatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         ContentValues word1 = new ContentValues();
-        word1.put("Name", "word1");
-        word1.put("Translate", "tr_word1");
+        word1.put("NAME", "word1");
+        word1.put("TRANSLATE", "tr_word1");
 
         ContentValues word2 = new ContentValues();
-        word1.put("Name", "word2");
-        word1.put("Translate", "tr_word2");
+        word2.put("NAME", "word10");
+        word2.put("TRANSLATE", "tr_word10");
+
+        ContentValues word3 = new ContentValues();
+        word3.put("NAME", "word3");
+        word3.put("TRANSLATE", "tr_word3");
+
         db.execSQL("CREATE TABLE WORDS (_id INTEGER PRIMARY KEY AUTOINCREMENT, NAME TEXT, TRANSLATE TEXT);");
         db.insert("WORDS", null, word1);
         db.insert("WORDS", null, word2);
+        db.insert("WORDS", null, word3);
     }
 
     @Override

@@ -17,28 +17,25 @@ public class LearnActivity extends AppCompatActivity {
         setContentView(R.layout.activity_learn);
 
 //        int wordNum = (Integer) getIntent().getExtras().get(EXTRA_WORD_NUM);//TODO save word num witch was last
-        int wordNum = 1;
+        int wordNum = 3;
 
         try {
             SQLiteOpenHelper wordDatabaseHelper = new WordDatabaseHelper(this);
             SQLiteDatabase db = wordDatabaseHelper.getReadableDatabase();
             Cursor cursor = db.query("WORDS",
-                    new String[] {"Name", "Translate"},
+                    new String[]{"NAME", "TRANSLATE"},
                     "_id = ?",
-                    new String[] {Integer.toString(wordNum)},
-                    null,null,null);
+                    new String[]{Integer.toString(wordNum)},
+                    null, null, null);
             if (cursor.moveToFirst()) {
                 String wordText = cursor.getString(0);
                 String tr_wordText = cursor.getString(1);
-//                int pic_id = cursor.getInt(2);
 
                 TextView word = (TextView) findViewById(R.id.word);
                 word.setText(wordText);
 
                 TextView tr_word = (TextView) findViewById(R.id.tr_word);
                 tr_word.setText(tr_wordText);
-
-            //        ImageView photo = ;//
             }
             cursor.close();
             db.close();
@@ -46,7 +43,5 @@ public class LearnActivity extends AppCompatActivity {
             Toast toast = Toast.makeText(this, "Database unvisible", Toast.LENGTH_SHORT);
             toast.show();
         }
-
     }
-
 }
