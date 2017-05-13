@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">ALL</string>
+    <string name="repeat_text">Трениться</string>
+    <string name="learn_text">Учить</string>
+    <string name="name">ALL</string>
 </resources>
