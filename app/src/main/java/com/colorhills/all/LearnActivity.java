@@ -18,7 +18,6 @@ public class LearnActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_learn);
-
         wordNum = getIntent().getIntExtra("word_id", 1);//TODO save word num witch was last
         showWord();
     }
