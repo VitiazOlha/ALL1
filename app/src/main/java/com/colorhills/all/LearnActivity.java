@@ -23,7 +23,7 @@ public class LearnActivity extends AppCompatActivity {
         showWord();
     }
 
-    private void showWord(){
+    private void showWord() {
         try {
             SQLiteOpenHelper wordDatabaseHelper = new WordDatabaseHelper(this);
             SQLiteDatabase db = wordDatabaseHelper.getReadableDatabase();
@@ -51,8 +51,10 @@ public class LearnActivity extends AppCompatActivity {
     }
 
     public void getPrev(View view) {
-       wordNum = wordNum - 1;
-        showWord();
+        if (wordNum != 1) {
+            wordNum = wordNum - 1;
+            showWord();
+        }
     }
 
     public void getNext(View view) {

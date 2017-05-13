@@ -17,16 +17,16 @@ class WordDatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         ContentValues word1 = new ContentValues();
-        word1.put("NAME", "word1");
-        word1.put("TRANSLATE", "tr_word1");
+        word1.put("NAME", "яблоко");
+        word1.put("TRANSLATE", "apple");
 
         ContentValues word2 = new ContentValues();
-        word2.put("NAME", "word10");
-        word2.put("TRANSLATE", "tr_word10");
+        word2.put("NAME", "воображение");
+        word2.put("TRANSLATE", "imagination");
 
         ContentValues word3 = new ContentValues();
-        word3.put("NAME", "word3");
-        word3.put("TRANSLATE", "tr_word3");
+        word3.put("NAME", "список");
+        word3.put("TRANSLATE", "list");
 
         db.execSQL("CREATE TABLE WORDS (_id INTEGER PRIMARY KEY AUTOINCREMENT, NAME TEXT, TRANSLATE TEXT);");
         db.insert("WORDS", null, word1);
